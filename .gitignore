@@ -9,6 +9,8 @@ node_modules/
 */node_modules/
 package-lock.json
 */package-lock.json
+/job-sync/package-lock.json
+/job-sync/node_modules
 
 # Logs
 *.log
