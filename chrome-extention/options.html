@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>LLM Autofill – Options</title>
+        <style>
+          body {
+            font-family: system-ui, sans-serif;
+            background: #f9fafb;
+            color: #111827;
+            margin: 40px auto;
+            max-width: 720px;
+            padding: 0 20px;
+          }
+      
+          h1 {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+          }
+      
+          label {
+            font-weight: 500;
+            display: block;
+            margin-top: 20px;
+            color: #374151;
+          }
+      
+          input, select, textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 8px 10px;
+            font-size: 14px;
+            background: #fff;
+            margin-top: 6px;
+            transition: border 0.2s ease;
+          }
+      
+          input:focus, select:focus, textarea:focus {
+            border-color: #3b82f6;
+            outline: none;
+          }
+      
+          textarea {
+            resize: vertical;
+            min-height: 80px;
+            line-height: 1.5;
+          }
+      
+          button {
+            margin-top: 24px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+          }
+      
+          button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          }
+      
+          #status {
+            margin-left: 10px;
+            font-weight: 500;
+            color: #16a34a;
+          }
+      
+          h3 {
+            margin-top: 30px;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 4px;
+            color: #111827;
+          }
+        </style>
+      </head>
+  <body>
+    <h1>LLM Autofill – Options</h1>
+    <label>OpenAI API Key<br/><input id="apiKey" type="password" style="width:420px"></label>
+    <p><label>Tone
+      <select id="tone">
+        <option value="concise" selected>Concise</option>
+        <option value="enthusiastic">Enthusiastic</option>
+        <option value="professional">Professional</option>
+      </select></label>
+    </p>
+    <h3>Your Profile</h3>
+    <p><textarea id="highlights" rows="6" cols="80" placeholder="Bullet points: biggest wins, tech stack, domains..."></textarea></p>
+    <p><textarea id="resume" rows="10" cols="80" placeholder="Paste your resume text (or summary)"></textarea></p>
+    <p><textarea id="values" rows="6" cols="80" placeholder="What you value in teams, mission, culture"></textarea></p>
+    <button id="save">Save</button>
+    <span id="status"></span>
+    <script src="options.js"></script>
+  </body>
+</html>
