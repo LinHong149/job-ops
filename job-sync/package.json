@@ -1,0 +1,14 @@
+{
+    "name": "mcp-server",
+    "version": "0.1.0",
+    "type": "module",
+    "dependencies": {
+        "cron": "^3.1.7",
+        "dotenv": "^17.2.3",
+        "express": "^5.1.0",
+        "jsdom": "^24.0.0",
+        "node-fetch": "^3.3.2",
+        "open": "^10.2.0",
+        "ws": "^8.17.1"
+    }
+}

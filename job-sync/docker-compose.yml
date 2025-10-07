@@ -1,0 +1,35 @@
+services:
+  mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mcp-server
+    environment:
+      TZ: America/Toronto
+
+      # === Notion ===
+      NOTION_TOKEN: ${NOTION_TOKEN}
+      NOTION_DB_ID: ${NOTION_DB_ID}
+
+      # === Gmail (polling) ===
+      GMAIL_CLIENT_ID: ${GMAIL_CLIENT_ID}
+      GMAIL_CLIENT_SECRET: ${GMAIL_CLIENT_SECRET}
+      GMAIL_REFRESH_TOKEN: ${GMAIL_REFRESH_TOKEN}
+      GMAIL_LABEL_OA: "OA"
+      GMAIL_LABEL_INTERVIEW: "Interview"
+      GMAIL_LABEL_REJECTED: "Rejected"
+
+      # === Discord ===
+      DISCORD_WEBHOOK_URL: ${DISCORD_WEBHOOK_URL}
+
+      # === Schedules (cron syntax) ===
+      CRON_GMAIL: "*/5 * * * *"         # every 5 minutes
+      CRON_WEEKLY_ANALYTICS: "0 18 * * SUN"  # Sundays 6:00pm Toronto
+
+      # === MCP WebSocket ===
+      MCP_WS_PORT: "8719"
+    ports:
+      - "8719:8719"
+    volumes:
+      - ./data:/data   # optional for logs/cache
+    restart: unless-stopped
