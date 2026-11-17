@@ -10,6 +10,22 @@ A Chrome extension and MCP server that helps you track job applications, draft A
 - **Notion Integration**: Automatic job application tracking with company-wide status updates
 - **Discord Notifications**: Real-time notifications for job-related emails
 
+## How it works
+
+Two halves that share one Notion database.
+
+**`chrome-extention/`** is a Manifest V3 extension. A content script reads the application form in
+the page, an LLM drafts answers for the free-text fields, and the popup lets you review and edit
+before anything is submitted.
+
+**`job-sync/`** is a Node MCP server, containerized with Docker and run via docker-compose. It
+polls Gmail on a schedule, classifies each thread as a rejection, acknowledgement or interview
+request, writes the resulting status back to the Notion tracker, and pushes a Discord notification.
+Exposing it over MCP means an agent can query and update the tracker directly instead of going
+through the API by hand.
+
+Flow: `application form → extension drafts → Notion row` and `Gmail → classifier → Notion status → Discord`.
+
 ## Setup
 
 ### 1. Environment Configuration
